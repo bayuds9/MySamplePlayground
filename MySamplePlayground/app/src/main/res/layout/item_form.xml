@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/itemRoot"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardContainer"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:cardCornerRadius="5dp"
+        android:elevation="5dp"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cardConstraintContainer"
+            android:background="?attr/selectableItemBackground"
+            android:paddingBottom="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/imgTop"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:src="@color/material_dynamic_primary20"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:importantForAccessibility="no" />
+
+            <ImageView
+                android:id="@+id/imgStart"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:scaleType="centerInside"
+                android:layout_margin="8dp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:background="@color/material_dynamic_primary10"
+                app:layout_constraintWidth_percent="0.2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgTop"
+                app:layout_constraintEnd_toStartOf="@id/textContainer"
+                app:layout_constraintStart_toStartOf="parent"
+                android:importantForAccessibility="no" />
+            <ImageView
+                android:id="@+id/imgEnd"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:scaleType="centerInside"
+                android:layout_margin="8dp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:background="@color/material_dynamic_primary10"
+                app:layout_constraintWidth_percent="0.2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgTop"
+                app:layout_constraintStart_toEndOf="@id/textContainer"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:importantForAccessibility="no" />
+            <LinearLayout
+                android:id="@+id/textContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="8dp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                app:layout_constraintTop_toBottomOf="@id/imgTop"
+                app:layout_constraintStart_toEndOf="@id/imgStart"
+                app:layout_constraintEnd_toStartOf="@id/imgEnd">
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="@tools:sample/lorem"/>
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="@tools:sample/lorem"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="Rp235.000"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:layout_marginVertical="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/textContainer"
+                app:layout_constraintTop_toBottomOf="@id/textContainer"
+                app:layout_constraintEnd_toStartOf="@id/containerQuantity"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/containerQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                app:layout_constraintStart_toEndOf="@id/tvPrice"
+                app:layout_constraintTop_toTopOf="@id/textContainer"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <EditText
+                    android:id="@+id/tvInputValue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    tools:text="0"
+                    android:enabled="false"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:background="@android:color/transparent"
+                    android:layout_marginHorizontal="20dp"
+                    app:layout_constraintTop_toTopOf="@id/btnPlus"
+                    app:layout_constraintBottom_toBottomOf="@id/btnPlus"
+                    app:layout_constraintEnd_toEndOf="@id/btnPlus"
+                    app:layout_constraintStart_toStartOf="@id/btnMin"
+                    android:importantForAutofill="no" />
+
+                <ImageButton
+                    android:id="@+id/btnMin"
+                    android:src="@drawable/ic_minus"
+                    android:background="?attr/selectableItemBackground"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/btnPlus" />
+
+                <ImageButton
+                    android:id="@+id/btnPlus"
+                    android:src="@drawable/ic_plus"
+                    android:background="?attr/selectableItemBackground"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintStart_toEndOf="@id/btnMin"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <CheckBox
+        android:id="@+id/cbContent"
+        android:visibility="gone"
+        tools:visibility="visible"
+        tools:text="@tools:sample/lorem"
+        android:layout_marginHorizontal="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <WebView
+        android:id="@+id/webviewContent"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tvText"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:padding="8dp"
+        android:background="?attr/selectableItemBackground"
+        tools:text="@tools:sample/lorem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_margin="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:hint="Input">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+</LinearLayout>
